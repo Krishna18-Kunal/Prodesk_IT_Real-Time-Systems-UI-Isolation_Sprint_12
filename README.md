@@ -1,168 +1,135 @@
-# ConnectX — Sprint 12 Real-Time Chat Application
+## Real-Time Systems & UI Isolation
 
-A full-stack real-time chat application built for Sprint 12 (Track B) using React, Node.js, Express and Socket.io.
+A full-stack application developed as part of the Prodesk IT Engineering Sprint Program, focusing on real-time communication, frontend-backend integration, and UI isolation.
 
-## Features
+## Project Overview
 
-### P0 — Mandatory
-- Express server with Socket.io
-- React client connected through `socket.io-client`
-- Real-time message send/receive
-- Server-side message validation and room broadcast
+This project follows a full-stack architecture with separate frontend and backend applications.
 
-### P1 — Priority
-- Username required before entering chat
-- Messages display the sender's username
-- Live typing indicator
-- Join/leave system messages
+The frontend manages the user interface and user interactions, while the backend handles server-side operations, API requests, and real-time communication.
 
-### P2 — Advanced
-- Two isolated rooms: **General** and **Tech Support**
-- Room switching
-- Messages and typing indicators are broadcast only to members of the selected room
+The project emphasizes modular development, maintainable code, efficient communication, and a responsive user experience.
 
-## Project structure
+## Project Structure
 
 ```text
-sprint12-connectx/
-├── client/                 # React + Vite frontend
+Prodesk_IT_Real-Time-Systems-UI-Isolation_Sprint_12/
+│
+├── client/              # Frontend application
 │   ├── src/
-│   │   ├── App.jsx
-│   │   ├── main.jsx
-│   │   ├── socket.js
-│   │   └── styles.css
-│   ├── .env.example
+│   ├── public/
 │   └── package.json
-├── server/                 # Express + Socket.io backend
-│   ├── server.js
-│   ├── .env.example
+│
+├── server/              # Backend application
+│   ├── src/
 │   └── package.json
-├── .gitignore
-└── README.md
+│
+├── PROMPTS.md            # AI-assisted development prompts
+└── README.md             # Project documentation
 ```
 
-## Requirements
+*Note: The structure above represents the expected organization. Actual files and folders may vary.*
 
-- Node.js 18 or newer
+## Key Objectives
+
+- Develop a full-stack application with separate frontend and backend components.
+- Implement real-time client-server communication.
+- Maintain UI isolation and modular component architecture.
+- Create a responsive and user-friendly interface.
+- Handle API requests and application errors effectively.
+- Follow clean coding and software engineering practices.
+
+## Technology Stack
+
+The exact technologies depend on the project implementation.
+
+| Component | Technology |
+|---|---|
+| Frontend | React.js / Vite |
+| Backend | Node.js |
+| Server Framework | Express.js |
+| Real-Time Communication | WebSocket / Socket.IO |
+| Package Manager | npm |
+| Version Control | Git & GitHub |
+
+## Getting Started
+
+### Prerequisites
+
+Make sure you have installed:
+
+- Node.js
 - npm
-- Two browser tabs/windows for testing multiple users
+- Git
 
-## Run locally
+### 1. Clone the Repository
 
-### 1. Start the backend
+```bash
+git clone https://github.com/Krishna18-Kunal/Prodesk_IT_Real-Time-Systems-UI-Isolation_Sprint_12.git
+```
 
-Open a terminal:
+### 2. Navigate to the Project
+
+```bash
+cd Prodesk_IT_Real-Time-Systems-UI-Isolation_Sprint_12
+```
+
+### 3. Setup Backend
 
 ```bash
 cd server
 npm install
 ```
 
-Copy `.env.example` to `.env` (or use the default local values), then run:
+Start the backend:
 
 ```bash
 npm run dev
 ```
 
-The backend runs at `http://localhost:5000`.
+### 4. Setup Frontend
 
-### 2. Start the frontend
-
-Open a second terminal from the project root:
+Open another terminal:
 
 ```bash
 cd client
 npm install
 ```
 
-Copy `client/.env.example` to `client/.env` if needed. Then run:
+Start the frontend:
 
 ```bash
 npm run dev
 ```
 
-Open the Vite URL shown in the terminal (normally `http://localhost:5173`).
+*Note: The commands assume that both client and server define a `dev` script in their respective package.json files.*
 
-### 3. Test the application
+## Development Workflow
 
-1. Open the app in two separate browser tabs or browser profiles.
-2. Enter a different username in each.
-3. Join **General** in both tabs and exchange messages.
-4. Switch one user to **Tech Support**. Messages sent there should not appear in General.
-5. Type in one tab and verify that the other member of the same room sees the typing indicator.
-6. Verify that a user in the other room does not see that typing indicator.
+1. Develop and maintain frontend components inside the `client` directory.
+2. Implement backend logic inside the `server` directory.
+3. Integrate frontend and backend through APIs and real-time communication.
+4. Test application functionality and resolve errors.
+5. Maintain documentation and code quality.
 
-## Environment variables
+## Project Documentation
 
-### Backend (`server/.env`)
+- `README.md` – Project overview, setup instructions, and documentation.
+- `PROMPTS.md` – AI-assisted development prompts and development guidelines.
 
-```env
-PORT=5000
-CLIENT_ORIGIN=http://localhost:5173
-```
+## Learning Outcomes
 
-For production, set `CLIENT_ORIGIN` to your deployed frontend URL. Multiple origins can be comma-separated.
+- Understanding full-stack application architecture.
+- Working with frontend and backend integration.
+- Understanding real-time communication systems.
+- Applying UI isolation principles.
+- Improving debugging, testing, and code organization skills.
+- Using Git and GitHub for version control.
 
-### Frontend (`client/.env`)
+## Author
 
-```env
-VITE_SOCKET_URL=http://localhost:5000
-```
+**Krishna Kunal**
 
-For production, set `VITE_SOCKET_URL` to your deployed backend URL, for example `https://your-api.onrender.com`.
+## License
 
-## Deployment guide
-
-A simple deployment option is **Render (backend) + Vercel (frontend)**.
-
-### Backend on Render
-
-1. Push this project to GitHub.
-2. In Render, create a new **Web Service** and connect the repository.
-3. Set the **Root Directory** to `server`.
-4. Build command: `npm install`
-5. Start command: `npm start`
-6. Add environment variable `CLIENT_ORIGIN` with your deployed Vercel frontend URL.
-7. Deploy and copy the backend URL.
-
-### Frontend on Vercel
-
-1. Import the same GitHub repository into Vercel.
-2. Set the **Root Directory** to `client`.
-3. Add environment variable `VITE_SOCKET_URL` with the Render backend URL.
-4. Deploy and copy the frontend URL.
-
-After changing environment variables, redeploy the affected service. Confirm that the hosting provider supports persistent WebSocket connections.
-
-## Useful scripts
-
-Backend:
-- `npm run dev` — start with nodemon
-- `npm start` — start production server
-
-Frontend:
-- `npm run dev` — start Vite development server
-- `npm run build` — create production frontend build
-- `npm run preview` — preview the production build locally
-
-## Socket events
-
-| Event | Direction | Purpose |
-|---|---|---|
-| `join-room` | Client → Server | Join a selected room |
-| `room-joined` | Server → Client | Confirm room membership |
-| `chat-message` | Client → Server | Submit a message |
-| `new-message` | Server → Room | Broadcast a message to that room |
-| `typing` | Client → Server | Notify server that user is typing |
-| `user-typing` | Server → Room | Broadcast typing state within that room |
-| `stop-typing` | Client → Server | Stop typing notification |
-| `user-stop-typing` | Server → Room | Clear typing state within that room |
-| `system-message` | Server → Room | Join/leave notification |
-| `chat-error` | Server → Client | Report invalid event data |
-
-## Notes
-
-- This is a learning/sprint project. Messages are kept in the connected clients' current session and are not persisted in a database.
-- The server validates usernames, room names and message length.
-- Room broadcasts use `io.to(room)` / `socket.to(room)` rather than global broadcasting.
-- For a production commercial chat service, add authentication, persistent storage, rate limiting, moderation and monitoring.
+This project is developed for educational and engineering sprint purposes.
