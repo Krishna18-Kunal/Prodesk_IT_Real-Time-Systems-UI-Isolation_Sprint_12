@@ -148,6 +148,9 @@ io.on("connection", (socket) => {
   });
 });
 
-server.listen(PORT, () => {
-  console.log(`ConnectX server running on port ${PORT}`);
+// server.listen(PORT, () => {
+//   console.log(`ConnectX server running on port ${PORT}`);
+// });
+   server.listen(PORT, "0.0.0.0", () => {
+      console.log(`ConnectX server running on port ${PORT}`);
 });
