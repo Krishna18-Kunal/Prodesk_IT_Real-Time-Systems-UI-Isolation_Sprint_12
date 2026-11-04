@@ -1,39 +1,63 @@
-# PROMPTS.md — ConnectX Sprint 12
+# Prodesk IT – Sprint 12
+## Real-Time Systems & UI Isolation
 
-This file records the main development prompts/specifications used to build the project.
+### Project Overview
+This repository contains the Sprint 12 project developed as part of the Prodesk IT Engineering Sprint Program.
 
-## Project objective
+The project follows a full-stack architecture with two main components:
 
-Build a real-time, bidirectional chat application for Sprint 12 Track B using React, Node.js, Express and Socket.io.
+- **Frontend (Client):** Handles the user interface, user interactions, and client-side functionality.
+- **Backend (Server):** Handles server-side logic, API endpoints, data processing, and real-time communication.
 
-## Prompt 1 — Backend setup
+### Development Objectives
+- Build a structured and maintainable full-stack application.
+- Implement real-time communication between frontend and backend.
+- Maintain proper separation between client-side and server-side responsibilities.
+- Ensure UI isolation and a responsive user experience.
+- Follow clean coding practices and modular architecture.
+- Handle errors and application states appropriately.
 
-Create an Express and Socket.io server. Configure CORS using environment variables, expose a health-check endpoint, and log successful socket connections and disconnections.
+### AI-Assisted Development Prompts
 
-## Prompt 2 — Real-time chat (P0)
+The following prompts represent the development guidelines used for planning, implementing, reviewing, and improving the application.
 
-Implement client/server Socket.io communication. A client should emit a message, the server should validate it, and the server should broadcast it to clients subscribed to the same room. Render received messages in React immediately.
+#### 1. Project Architecture
+"Analyze the project requirements and design a clean full-stack architecture with separate frontend and backend directories. Ensure proper separation of concerns, modularity, and maintainability."
 
-## Prompt 3 — Session identity and typing (P1)
+#### 2. Frontend Development
+"Develop a responsive and user-friendly frontend with reusable components, clean layouts, proper state management, and consistent UI behavior."
 
-Require a username before joining chat. Include the username and timestamp with each message. Implement typing and stop-typing events and show a typing indicator to other users in the same room.
+#### 3. Backend Development
+"Build a structured backend with well-organized routes, controllers, middleware, and appropriate error handling. Follow secure and maintainable coding practices."
 
-## Prompt 4 — Room isolation (P2)
+#### 4. Real-Time Communication
+"Implement real-time communication between the client and server. Ensure reliable event handling, connection management, and appropriate handling of connection failures."
 
-Implement General and Tech Support rooms. Allow users to switch rooms. Ensure messages, typing indicators and room system events are scoped to the relevant room; do not use global broadcasts for chat content.
+#### 5. UI Isolation
+"Maintain UI isolation by separating interface components and their responsibilities. Prevent unnecessary component updates and ensure predictable application behavior."
 
-## Prompt 5 — Interface
+#### 6. Error Handling and Validation
+"Review the application for potential errors. Add appropriate input validation, error handling, loading states, and user-friendly feedback."
 
-Create a responsive chat interface with a username entry screen, room selector, message list, message composer, connection status, typing indicator and clear empty states.
+#### 7. Code Quality and Optimization
+"Review the complete codebase for unnecessary duplication, performance issues, naming consistency, and opportunities to improve readability and maintainability."
 
-## Manual verification checklist
+#### 8. Testing and Debugging
+"Test the frontend and backend independently and together. Identify integration issues, resolve runtime errors, and verify the expected application functionality."
 
-- [ ] Backend starts successfully.
-- [ ] Frontend starts successfully.
-- [ ] Socket connection is established.
-- [ ] Two clients can exchange messages in real time.
-- [ ] Messages show the sender's username.
-- [ ] Typing indicator appears for other users in the same room.
-- [ ] General and Tech Support are isolated.
-- [ ] Switching rooms updates the active subscription.
-- [ ] The project builds successfully.
+#### 9. Final Review
+"Perform a final project review to ensure that the frontend, backend, API integration, real-time functionality, and UI behavior work as expected."
+
+### Development Principles
+- Keep frontend and backend responsibilities separate.
+- Write readable, reusable, and maintainable code.
+- Use meaningful file and variable names.
+- Avoid unnecessary dependencies.
+- Validate user inputs.
+- Handle errors gracefully.
+- Test important functionality before deployment.
+- Keep project documentation updated.
+
+
+### Note
+This document describes the development guidelines and AI-assisted prompts relevant to the project. The actual implementation and functionality should be verified against the source code.
